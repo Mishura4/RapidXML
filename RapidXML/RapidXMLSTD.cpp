@@ -75,7 +75,7 @@ const bool SetHeader(XMLDocument* doc, const uint8_t& version, const std::string
 	XMLElement* decl = doc->allocate_node(rapidxml::node_type::node_declaration);
 
 	char buf[10];
-	sprintf_s(buf, 10, "%d.0", version);
+	snprintf(buf, 10, "%d.0", version);
 
 	const char* _versionVal = doc->allocate_string(buf);
 	decl->append_attribute(doc->allocate_attribute("version", _versionVal));
