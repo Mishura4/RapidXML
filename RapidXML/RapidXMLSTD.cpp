@@ -18,7 +18,7 @@ XMLFile* OpenXMLFile(const std::string& filePath, std::string& error)
 /**Disposes resources.
 * @param doc - A xml object file
 * @returns True if success*/
-const bool DisposeXMLFile(XMLFile* file)
+bool DisposeXMLFile(XMLFile* file)
 {
 	if (!file)
 	{
@@ -64,7 +64,7 @@ XMLDocument* CreateXML(const uint8_t& version, const std::string& encoding, std:
 * @param version - the version of the XML format
 * @param encoding = The Encoding of the XML file (eg: utf-8, utf-16)
 * @returns True if success*/
-const bool SetHeader(XMLDocument* doc, const uint8_t& version, const std::string& encoding, std::string& error)
+bool SetHeader(XMLDocument* doc, const uint8_t& version, const std::string& encoding, std::string& error)
 {
 	if (!doc)
 	{
@@ -90,7 +90,7 @@ const bool SetHeader(XMLDocument* doc, const uint8_t& version, const std::string
 * @param doc - A xml document object
 * @param element - The element to set the namespace
 * @returns True if success*/
-const bool SetElementDefaultNamespaces(XMLDocument* doc, XMLElement* node, std::string& error)
+bool SetElementDefaultNamespaces(XMLDocument* doc, XMLElement* node, std::string& error)
 {
 	return SetElementNamespaces(doc, node, "http://www.w3.org/2001/XMLSchema-instance", "http://www.w3.org/2001/XMLSchema", error);
 }
@@ -100,7 +100,7 @@ const bool SetElementDefaultNamespaces(XMLDocument* doc, XMLElement* node, std::
 * @param xsi - The xsi address
 * @param xsd - The xds address
 * @returns True if success*/
-const bool SetElementNamespaces(XMLDocument* doc, XMLElement* element, const std::string& xsi, const std::string& xsd, std::string& error)
+bool SetElementNamespaces(XMLDocument* doc, XMLElement* element, const std::string& xsi, const std::string& xsd, std::string& error)
 {
 	if (!doc)
 	{
@@ -121,7 +121,7 @@ const bool SetElementNamespaces(XMLDocument* doc, XMLElement* element, const std
 /**Disposes resources.
 * @param doc - A xml document object
 * @returns True if success*/
-const bool DisposeXMLObject(XMLDocument* doc)
+bool DisposeXMLObject(XMLDocument* doc)
 {
 	if (!doc)
 		return false;
@@ -134,7 +134,7 @@ const bool DisposeXMLObject(XMLDocument* doc)
 * @param doc - A xml document object
 * @param filePath - The path to an xml file
 * @returns True if success*/
-const bool SaveXML(const XMLDocument& doc, const std::string& filePath)
+bool SaveXML(const XMLDocument& doc, const std::string& filePath)
 {
 	// Save to file
 	std::ofstream file_stored(filePath);
@@ -307,7 +307,7 @@ XMLAttributte* FirstOrDefaultAttribute(XMLElement* parent, const std::string& at
 	return parent->first_attribute(attributeName.c_str());
 }
 
-const bool SetAttributeValue(XMLAttributte* attribute, const std::string& attributeValue, std::string& error)
+bool SetAttributeValue(XMLAttributte* attribute, const std::string& attributeValue, std::string& error)
 {
 	if (!attribute)
 	{
@@ -326,7 +326,7 @@ const bool SetAttributeValue(XMLAttributte* attribute, const std::string& attrib
 	attribute->value(value);
 	return true;
 }
-const bool SetAttributeValueA(XMLElement* element, const std::string& attributeName, const std::string& attributeValue, std::string& error)
+bool SetAttributeValueA(XMLElement* element, const std::string& attributeName, const std::string& attributeValue, std::string& error)
 {
 	if (!element)
 	{
@@ -348,7 +348,7 @@ const bool SetAttributeValueA(XMLElement* element, const std::string& attributeN
 
 	return ::SetAttributeValue(attribute, attributeValue, error);
 }
-const bool SetElementValue(XMLElement* parent, XMLElement* child, std::string& error)
+bool SetElementValue(XMLElement* parent, XMLElement* child, std::string& error)
 {
 	if (!parent)
 	{
@@ -365,7 +365,7 @@ const bool SetElementValue(XMLElement* parent, XMLElement* child, std::string& e
 	parent->append_node(child);
 	return true;
 }
-const bool SetElementValueA(XMLElement* element, const std::string& elementValue, std::string& error)
+bool SetElementValueA(XMLElement* element, const std::string& elementValue, std::string& error)
 {
 	if (!element)
 	{
@@ -388,7 +388,7 @@ const bool SetElementValueA(XMLElement* element, const std::string& elementValue
 * @param doc - A xml document object
 * @param node - The element add
 * @returns True if success*/
-const bool AddElementToDocument(XMLDocument* doc, XMLElement* element, std::string& error)
+bool AddElementToDocument(XMLDocument* doc, XMLElement* element, std::string& error)
 {
 	if (!doc)
 	{
@@ -409,7 +409,7 @@ const bool AddElementToDocument(XMLDocument* doc, XMLElement* element, std::stri
 * @param parent - The parent element
 * @param child - The child element
 * @returns True if success*/
-const bool AddElementToElement(XMLElement* parent, XMLElement* child, std::string& error)
+bool AddElementToElement(XMLElement* parent, XMLElement* child, std::string& error)
 {
 	if (!parent)
 	{
@@ -430,7 +430,7 @@ const bool AddElementToElement(XMLElement* parent, XMLElement* child, std::strin
 * @param parent - The parent element
 * @param child - The child element
 * @returns True if success*/
-const bool AddAttributeToElement(XMLElement* parent, XMLAttributte* child, std::string& error)
+bool AddAttributeToElement(XMLElement* parent, XMLAttributte* child, std::string& error)
 {
 	if (!parent)
 	{
