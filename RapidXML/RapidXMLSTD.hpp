@@ -50,26 +50,26 @@ extern "C"
 	* @param attributeValue - The value of the attribute
 	* @param error - An error message
 	* @returns True if success*/
-	DLL_EX const bool SetAttributeValue(XMLAttributte* attribute, const std::string& attributeValue, std::string& error);
+	DLL_EX bool SetAttributeValue(XMLAttributte* attribute, const std::string& attributeValue, std::string& error);
 	/**Sets the value of an attribute
 	* @param element - The attribute parent
 	* @param attributeName - The attribute name
 	* @param attributeValue - The value of the attribute
 	* @param error - An error message
 	* @returns True if success*/
-	DLL_EX const bool SetAttributeValueA(XMLElement* element, const std::string& attributeName, const std::string& attributeValue, std::string& error);
+	DLL_EX bool SetAttributeValueA(XMLElement* element, const std::string& attributeName, const std::string& attributeValue, std::string& error);
 	/**Sets the value of an attribute
 	* @param parent - The element's parent
 	* @param child - The element
 	* @param error - An error message
 	* @returns True if success*/
-	DLL_EX const bool SetElementValue(XMLElement* parent, XMLElement* child, std::string& error);
+	DLL_EX bool SetElementValue(XMLElement* parent, XMLElement* child, std::string& error);
 	/**Sets the value of an attribute
 	* @param element - The element
 	* @param elementValue - The element value
 	* @param error - An error message
 	* @returns True if success*/
-	DLL_EX const bool SetElementValueA(XMLElement* element, const std::string& elementValue, std::string& error);
+	DLL_EX bool SetElementValueA(XMLElement* element, const std::string& elementValue, std::string& error);
 	/**Opens a new XML file
 	* @param filePath - The path to a file
 	* @param error - An error message
@@ -78,7 +78,7 @@ extern "C"
 	/**Disposes resources.
 	* @param doc - A xml object file
 	* @returns True if success*/
-	DLL_EX const bool DisposeXMLFile(XMLFile* file);
+	DLL_EX bool DisposeXMLFile(XMLFile* file);
 	/**Creates a new XML file
 	* @param file - The xml object file
 	* @param error - An error message
@@ -93,26 +93,26 @@ extern "C"
 	/**Disposes resources.
 	* @param doc - A xml document object
 	* @returns True if success*/
-	DLL_EX const bool DisposeXMLObject(XMLDocument* doc);
+	DLL_EX bool DisposeXMLObject(XMLDocument* doc);
 	/**Saves and XML object to a file
 	* @param doc - A xml document object
 	* @param filePath - The path to an xml file
 	* @param error - An error message
 	* @returns True if success*/
-	DLL_EX const bool SaveXML(const XMLDocument& doc, const std::string& filePath);
+	DLL_EX bool SaveXML(const XMLDocument& doc, const std::string& filePath);
 	/**Writes the header of an xml file
 	* @param doc - A xml document object
 	* @param version - the version of the XML format
 	* @param encoding = The Encoding of the XML file (eg: utf-8, utf-16)
 	* @param error - An error message
 	* @returns True if success*/
-	DLL_EX const bool SetHeader(XMLDocument* doc, const uint8_t& version, const std::string& encoding, std::string& error);
+	DLL_EX bool SetHeader(XMLDocument* doc, const uint8_t& version, const std::string& encoding, std::string& error);
 	/**Sets the default xsi and xsd namespaces
 	* @param doc - A xml document object
 	* @param element - The element to set the namespace
 	* @param error - An error message
 	* @returns True if success*/
-	DLL_EX const bool SetElementDefaultNamespaces(XMLDocument* doc, XMLElement* element, std::string& error);
+	DLL_EX bool SetElementDefaultNamespaces(XMLDocument* doc, XMLElement* element, std::string& error);
 	/**Sets the xmlns:xsi and xmlns:xsd namespaces
 	* @param doc - A xml document object
 	* @param element - The element to set the namespace
@@ -120,25 +120,25 @@ extern "C"
 	* @param xsd - The xds address
 	* @param error - An error message
 	* @returns True if success*/
-	DLL_EX const bool SetElementNamespaces(XMLDocument* doc, XMLElement* element, const std::string& xsi, const std::string& xsd, std::string& error);
+	DLL_EX bool SetElementNamespaces(XMLDocument* doc, XMLElement* element, const std::string& xsi, const std::string& xsd, std::string& error);
 	/**Adds an element to a xml document
 	* @param doc - A xml document object
 	* @param element - The element add
 	* @param error - An error message
 	* @returns True if success*/
-	DLL_EX const bool AddElementToDocument(XMLDocument* doc, XMLElement* element, std::string& error);
+	DLL_EX bool AddElementToDocument(XMLDocument* doc, XMLElement* element, std::string& error);
 	/**Adds a element to another element
 	* @param parent - The parent element
 	* @param child - The child element
 	* @param error - An error message
 	* @returns True if success*/
-	DLL_EX const bool AddElementToElement(XMLElement* parent, XMLElement* child, std::string& error);
+	DLL_EX bool AddElementToElement(XMLElement* parent, XMLElement* child, std::string& error);
 	/**Adds an attribute to a element
 	* @param parent - The parent element
 	* @param child - The child element
 	* @param error - An error message
 	* @returns True if success*/
-	DLL_EX const bool AddAttributeToElement(XMLElement* parent, XMLAttributte* child, std::string& error);
+	DLL_EX bool AddAttributeToElement(XMLElement* parent, XMLAttributte* child, std::string& error);
 	/**Creates an attribute
 	* @param doc - A xml document object
 	* @param attributeName - The name of the attribute
@@ -188,26 +188,26 @@ XMLAttributte* FirstOrDefaultAttribute(XMLElement* parent, const std::string& at
 * @param attributeValue - The value of the attribute
 * @param error - An error message
 * @returns True if success*/
-const bool SetAttributeValue(XMLAttributte* attribute, const std::string& attributeValue, std::string& error);
+bool SetAttributeValue(XMLAttributte* attribute, const std::string& attributeValue, std::string& error);
 /**Sets the value of an attribute
 * @param element - The attribute parent
 * @param attributeName - The attribute name
 * @param attributeValue - The value of the attribute
 * @param error - An error message
 * @returns True if success*/
-const bool SetAttributeValueA(XMLElement* element, const std::string& attributeName, const std::string& attributeValue, std::string& error);
+bool SetAttributeValueA(XMLElement* element, const std::string& attributeName, const std::string& attributeValue, std::string& error);
 /**Sets the value of an attribute
 * @param parent - The element's parent
 * @param child - The element
 * @param error - An error message
 * @returns True if success*/
-const bool SetElementValue(XMLElement* parent, XMLElement* child, std::string& error);
+bool SetElementValue(XMLElement* parent, XMLElement* child, std::string& error);
 /**Sets the value of an attribute
 * @param element - The element
 * @param elementValue - The element value
 * @param error - An error message
 * @returns True if success*/
-const bool SetElementValueA(XMLElement* element, const std::string& elementValue, std::string& error);
+bool SetElementValueA(XMLElement* element, const std::string& elementValue, std::string& error);
 /**Opens a new XML file
 * @param filePath - The path to a file
 * @param error - An error message
@@ -216,7 +216,7 @@ XMLFile* OpenXMLFile(const std::string& filePath, std::string& error);
 /**Disposes resources.
 * @param doc - A xml object file
 * @returns True if success*/
-const bool DisposeXMLFile(XMLFile* file);
+bool DisposeXMLFile(XMLFile* file);
 /**Creates a new XML file
 * @param file - The xml object file
 * @param error - An error message
@@ -231,26 +231,26 @@ XMLDocument* CreateXML(const uint8_t& version, const std::string& encoding, std:
 /**Disposes resources.
 * @param doc - A xml document object
 * @returns True if success*/
-const bool DisposeXMLObject(XMLDocument* doc);
+bool DisposeXMLObject(XMLDocument* doc);
 /**Saves and XML object to a file
 * @param doc - A xml document object
 * @param filePath - The path to an xml file
 * @param error - An error message
 * @returns True if success*/
-const bool SaveXML(const XMLDocument& doc, const std::string& filePath);
+bool SaveXML(const XMLDocument& doc, const std::string& filePath);
 /**Writes the header of an xml file
 * @param doc - A xml document object
 * @param version - the version of the XML format
 * @param encoding = The Encoding of the XML file (eg: utf-8, utf-16)
 * @param error - An error message
 * @returns True if success*/
-const bool SetHeader(XMLDocument* doc, const uint8_t& version, const std::string& encoding, std::string& error);
+bool SetHeader(XMLDocument* doc, const uint8_t& version, const std::string& encoding, std::string& error);
 /**Sets the default xsi and xsd namespaces
 * @param doc - A xml document object
 * @param element - The element to set the namespace
 * @param error - An error message
 * @returns True if success*/
-const bool SetElementDefaultNamespaces(XMLDocument* doc, XMLElement* element, std::string& error);
+bool SetElementDefaultNamespaces(XMLDocument* doc, XMLElement* element, std::string& error);
 /**Sets the xmlns:xsi and xmlns:xsd namespaces
 * @param doc - A xml document object
 * @param element - The element to set the namespace
@@ -258,25 +258,25 @@ const bool SetElementDefaultNamespaces(XMLDocument* doc, XMLElement* element, st
 * @param xsd - The xds address
 * @param error - An error message
 * @returns True if success*/
-const bool SetElementNamespaces(XMLDocument* doc, XMLElement* element, const std::string& xsi, const std::string& xsd, std::string& error);
+bool SetElementNamespaces(XMLDocument* doc, XMLElement* element, const std::string& xsi, const std::string& xsd, std::string& error);
 /**Adds an element to a xml document
 * @param doc - A xml document object
 * @param element - The element add
 * @param error - An error message
 * @returns True if success*/
-const bool AddElementToDocument(XMLDocument* doc, XMLElement* element, std::string& error);
+bool AddElementToDocument(XMLDocument* doc, XMLElement* element, std::string& error);
 /**Adds a element to another element
 * @param parent - The parent element
 * @param child - The child element
 * @param error - An error message
 * @returns True if success*/
-const bool AddElementToElement(XMLElement* parent, XMLElement* child, std::string& error);
+bool AddElementToElement(XMLElement* parent, XMLElement* child, std::string& error);
 /**Adds an attribute to a element
 * @param parent - The parent element
 * @param child - The child element
 * @param error - An error message
 * @returns True if success*/
-const bool AddAttributeToElement(XMLElement* parent, XMLAttributte* child, std::string& error);
+bool AddAttributeToElement(XMLElement* parent, XMLAttributte* child, std::string& error);
 /**Creates an attribute
 * @param doc - A xml document object
 * @param attributeName - The name of the attribute
